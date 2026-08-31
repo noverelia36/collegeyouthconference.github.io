@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>برنامج مؤتمر 2026</title>
+  <meta name="description" content="برنامج مؤتمر 2026 على مدى ثلاثة أيام — اعرف النشاط الحالي والتالي وبرنامج اليوم كامل من هاتفك مباشرة." />
+  <meta name="theme-color" content="#14504a" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="برنامج مؤتمر 2026" />
+  <meta property="og:description" content="اعرف النشاط الحالي والتالي وبرنامج اليوم كامل من هاتفك مباشرة." />
+  <!-- TODO: أضف صورة معاينة رسمية إلى assets/images/social-preview.jpg ثم فعّل السطر التالي -->
+  <!-- <meta property="og:image" content="./assets/images/social-preview.jpg" /> -->
+
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home">
+        <span class="brand-mark" aria-hidden="true">26</span>
+        <span class="brand-text">مؤتمر 2026</span>
+      </a>
+
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+          <span class="nav-toggle-box" aria-hidden="true">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </span>
+          <span class="sr-only">القائمة</span>
+        </button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#program">البرنامج</a></li>
+          <li><a href="#topics">الموضوعات</a></li>
+          <li><a href="#servants">الخدام</a></li>
+          <li><a href="#venue">الأماكن</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO / TODAY -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">برنامج مؤتمر 2026</p>
+          <h1 class="hero-title">برنامج المؤتمر بين إيديك</h1>
+          <p class="hero-day" id="hero-day"></p>
+          <p class="hero-sub">اعرف اللي بيحصل دلوقتي واللي جاي بعده، من غير ما تدوّر.</p>
+          <a class="btn btn-primary" href="#today">عرض برنامج اليوم</a>
+        </div>
+        <div class="hero-panel">
+          <div class="current-card" id="current-card" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK ACTIONS -->
+    <section class="quick" aria-label="روابط سريعة">
+      <div class="container">
+        <ul class="quick-grid">
+          <li>
+            <a class="quick-item" href="#today">
+              <span class="quick-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M12 13v4M9 15h6"/></svg>
+              </span>
+              <span class="quick-label">برنامج اليوم</span>
+            </a>
+          </li>
+          <li>
+            <a class="quick-item" href="#program">
+              <span class="quick-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16M4 12h16M4 19h16"/><circle cx="4" cy="5" r="1" fill="currentColor"/><circle cx="4" cy="12" r="1" fill="currentColor"/><circle cx="4" cy="19" r="1" fill="currentColor"/></svg>
+              </span>
+              <span class="quick-label">البرنامج الكامل</span>
+            </a>
+          </li>
+          <li>
+            <a class="quick-item" href="#topics">
+              <span class="quick-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2v.3h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2Z"/></svg>
+              </span>
+              <span class="quick-label">موضوعات المؤتمر</span>
+            </a>
+          </li>
+          <li>
+            <a class="quick-item" href="#servants">
+              <span class="quick-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4a3 3 0 0 1 0 6M21 20c0-2.5-1.5-4.7-3.7-5.6"/></svg>
+              </span>
+              <span class="quick-label">الخدام</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TODAY'S PROGRAM -->
+    <section id="today" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>برنامج اليوم</h2>
+          <p class="section-note" id="today-note"></p>
+        </div>
+        <ol class="timeline" id="today-list"></ol>
+      </div>
+    </section>
+
+    <!-- FULL PROGRAM -->
+    <section id="program" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>البرنامج الكامل</h2>
+          <p class="section-note">اضغط على أي نشاط لعرض تفاصيله.</p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="أيام المؤتمر" id="day-tabs"></div>
+        <ol class="timeline" id="program-list" role="tabpanel" tabindex="0"></ol>
+      </div>
+    </section>
+
+    <!-- CONFERENCE TOPICS -->
+    <section id="topics" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>موضوعات المؤتمر</h2>
+          <p class="section-note">محاور المجموعات والمحاضرات على مدى الأيام الثلاثة.</p>
+        </div>
+        <ul class="topics-grid" id="topics-grid"></ul>
+      </div>
+    </section>
+
+    <!-- SERVANTS / TEAMS -->
+    <section id="servants" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>الخدام</h2>
+          <p class="section-note">خدام المجموعات حسب البرنامج.</p>
+        </div>
+        <ul class="teams-grid" id="teams-grid"></ul>
+      </div>
+    </section>
+
+    <!-- VENUE / LOCATIONS -->
+    <section id="venue" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>أماكن المؤتمر</h2>
+          <p class="section-note">الأماكن المستخدمة في البرنامج.</p>
+        </div>
+        <ul class="venue-grid" id="venue-grid"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand">مؤتمر 2026</p>
+      <nav aria-label="روابط التذييل">
+        <ul class="footer-links">
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#program">البرنامج</a></li>
+          <li><a href="#topics">الموضوعات</a></li>
+          <li><a href="#servants">الخدام</a></li>
+          <li><a href="#venue">الأماكن</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">© 2026 — برنامج مؤتمر 2026</p>
+    </div>
+  </footer>
+
+  <!-- Reusable modal -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+      <button class="modal-close" type="button" data-close aria-label="إغلاق">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>
