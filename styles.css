@@ -361,11 +361,7 @@ ul, ol { list-style: none; padding: 0; }
   width: 100%;
   padding: var(--space-4);
   text-align: start;
-  background: transparent;
-  border: 0;
-  transition: background-color .2s ease;
 }
-.session-btn:hover { background: var(--color-primary-light); }
 .session-time {
   direction: ltr;
   text-align: start;

@@ -293,7 +293,7 @@
     if (info.phase === "before") {
       var first = info.day.sessions[0];
       el.innerHTML = ccBlock("قبل البداية", false, "أول نشاط في " + info.day.label,
-        first.title + (first.desc ? " — " + first.desc : ""), first);
+        first.title, first);
       return;
     }
     if (info.phase === "after") {
@@ -302,11 +302,11 @@
     }
     var res = analyzeDay(info.day, nowMinutes());
     if (res.mode === "now") {
-      el.innerHTML = ccBlock("يحدث الآن", true, res.session.title, res.session.desc, res.session);
+      el.innerHTML = ccBlock("يحدث الآن", true, res.session.title, null, res.session);
     } else if (res.mode === "upcoming") {
-      el.innerHTML = ccBlock("أول نشاط اليوم", false, res.session.title, res.session.desc, res.session);
+      el.innerHTML = ccBlock("أول نشاط اليوم", false, res.session.title, null, res.session);
     } else if (res.mode === "next") {
-      el.innerHTML = ccBlock("التالي", false, res.session.title, res.session.desc, res.session);
+      el.innerHTML = ccBlock("التالي", false, res.session.title, null, res.session);
     } else {
       el.innerHTML = ccBlock("انتهى برنامج اليوم", false, "نشوفكم بكرة", null, null);
     }
@@ -316,11 +316,11 @@
      SCHEDULE RENDERING
   ------------------------------------------------------------------ */
   function sessionCardHTML(session, dayId, idx, liveMins) {
-    var team = teamById(session.teamId);
-    var tags = "";
-    if (session.location) tags += '<span class="tag tag-loc">📍 ' + esc(session.location) + "</span>";
-    if (team) tags += '<span class="tag tag-team">' + esc(team.title) + "</span>";
-    tags += '<span class="tag tag-cat">' + esc(catLabel(session.category)) + "</span>";
+    // البطاقة تعرض: الوقت + العنوان + المكان فقط.
+    // الوصف وتصنيف النشاط واسم المجموعة مخفية على البطاقة — وتظهر كاملة داخل المودال.
+    var tags = session.location
+      ? '<span class="session-tags"><span class="tag tag-loc">📍 ' + esc(session.location) + "</span></span>"
+      : "";
 
     var stateClass = "", badge = "";
     if (liveMins != null) {
@@ -335,15 +335,14 @@
     }
 
     return '<li class="session reveal' + stateClass + '" data-day="' + dayId + '" data-idx="' + idx + '">' +
-      '<button class="session-btn" type="button">' +
+      '<div class="session-btn">' +
         '<span class="session-time">' + esc(formatRange(session.start, session.end)) + "</span>" +
         '<span class="session-main">' +
           '<span class="session-title">' + esc(session.title) + "</span>" +
-          (session.desc ? '<span class="session-desc">' + esc(session.desc) + "</span>" : "") +
-          '<span class="session-tags">' + tags + "</span>" +
+          tags +
         "</span>" +
         badge +
-      "</button>" +
+      "</div>" +
     "</li>";
   }
 
@@ -605,16 +604,6 @@
      INIT
   ------------------------------------------------------------------ */
   function bindEvents() {
-    // فتح مودال النشاط من قائمتَي اليوم/البرنامج الكامل
-    [dom.todayList, dom.programList].forEach(function (list) {
-      list.addEventListener("click", function (e) {
-        var li = e.target.closest(".session");
-        if (!li) return;
-        var s = findSession(li.dataset.day, parseInt(li.dataset.idx, 10));
-        if (s) openModal(sessionModalHTML(s));
-      });
-    });
-
     // مودال الموضوعات
     dom.topicsGrid.addEventListener("click", function (e) {
       var btn = e.target.closest("[data-topic]");
